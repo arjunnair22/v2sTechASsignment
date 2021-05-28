@@ -1,4 +1,4 @@
-export const server = 'http://dummy.restapiexample.com/'
+export const server = 'https://dummy.restapiexample.com/'
 export const slugs={
     employees:'api/v1/employees'
 }
