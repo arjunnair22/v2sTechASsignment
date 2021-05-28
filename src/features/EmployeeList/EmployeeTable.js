@@ -8,7 +8,6 @@ const ClickableTableRow = withClickableRow(TableRow);
 export default function EmployeeTable({employees, onClick}){
 
     function employeeRow(employee) {
-        console.log(employee)
         const {id, employee_name, ...rest} = employee
         return < ClickableTableRow
             path={`/employee/${employee.id}`}

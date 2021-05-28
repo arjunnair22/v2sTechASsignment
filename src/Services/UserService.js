@@ -13,7 +13,6 @@ export default class UserService{
 
     static getUserName=()=>{
         let userObj = this.getUser() || {}
-        console.log(userObj)
         return userObj.user || '';
     }
 
