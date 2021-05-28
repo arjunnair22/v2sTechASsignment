@@ -34,7 +34,7 @@ export default function Employee(){
     return(
         <Row className={'justify-content-center'}>
             <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src={`${employee['profile_image']}`} alt={` ${employee['employee_name']} Profile Pic`}/>
+                <Card.Img variant="top" src={`${employee['profile_image']}`} alt={` ${employee['employee_name']} Profile Pic`} className={'rounded-circle'}/>
                 <Card.Body>
                     <Card.Title>Employee Details</Card.Title>
                     <Table striped bordered hover>
