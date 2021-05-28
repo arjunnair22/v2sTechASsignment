@@ -1,0 +1,11 @@
+.app-container{
+  min-height: 100vh;
+}
+
+.custom-control{
+ min-height: 100vh;
+}
+
+.clickable {
+    cursor: pointer;
+}
