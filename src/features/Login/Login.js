@@ -16,7 +16,7 @@ function Login(){
     useEffect(()=>{
         // @Todo : use enum for routes
         if(isLoggedIn) {
-            history.push('employees')
+            history.replace('/employees');
         }
     },[isLoggedIn, history, personalId])
 

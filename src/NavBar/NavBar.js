@@ -7,11 +7,13 @@ import Employee from "../features/EmployeeDetail/Employee";
 import React from "react";
 import withLoggedInUser from "../HOC/withLoggedInUser";
 import {UserBar} from "./UserBar";
+import PrivateRoute from "../SharedComponents/PrivateRoute";
+
 
 const routes = {
-    login:{path: '/', component: Login},
-    employees:{path: '/employees', component: withLoggedInUser(EmployeeList)},
-    employee:{path: '/employee/:id', component: withLoggedInUser(Employee)}
+    login:{path: '/', component: Login, route:Route},
+    employees:{path: '/employees', component: withLoggedInUser(EmployeeList), route: PrivateRoute},
+    employee:{path: '/employee/:id', component: withLoggedInUser(Employee), route:PrivateRoute}
 }
 
 
@@ -27,10 +29,12 @@ function AppNavBar(){
             <Router>
                 <Switch>
                     {
-                        Object.values(routes).map(route=>
-                            <Route exact path={route.path} key ={route.path}>
-                                <route.component/>
-                            </Route>
+                        Object.values(routes).map(route=> {
+
+                                return <route.route exact path={route.path} key={route.path}>
+                                    <route.component/>
+                                </route.route>
+                            }
                         )
                     }
                 </Switch>

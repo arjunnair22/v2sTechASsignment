@@ -1,6 +1,6 @@
-import {Card, Row, Table} from "react-bootstrap";
+import {Button, Card, Row, Table} from "react-bootstrap";
 import {useSelector} from "react-redux";
-import {useLocation} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import {employeeModel} from "../../helpers/constants";
 
 function fromEmployeeProperties(entry) {
@@ -11,6 +11,7 @@ export default function Employee(){
     const location = useLocation()
     const employee  = useSelector(state=> location.state.data || state['employee']);
     const {profile_image, ...details} = location.state.details || {}
+    const history = useHistory();
 
     function getTbody() {
         return <tbody>
@@ -32,16 +33,21 @@ export default function Employee(){
 
 
     return(
-        <Row className={'justify-content-center'}>
-            <Card style={{width: '18rem'}}>
-                <Card.Img variant="top" src={`${employee['profile_image']}`} alt={` ${employee['employee_name']} Profile Pic`} className={'rounded-circle'}/>
-                <Card.Body>
-                    <Card.Title>Employee Details</Card.Title>
-                    <Table striped bordered hover>
-                        {getTbody()}
-                    </Table>
-                </Card.Body>
-            </Card>
-        </Row>
+        <>
+            <Row>
+                <Button variant={"link"} onClick={()=>history.goBack()} > Back </Button>
+            </Row>
+            <Row className={'justify-content-center'}>
+                <Card style={{width: '18rem'}}>
+                    <Card.Img variant="top" src={`${employee['profile_image']}`} alt={` ${employee['employee_name']} Profile Pic`} className={'rounded-circle'}/>
+                    <Card.Body>
+                        <Card.Title>Employee Details</Card.Title>
+                        <Table striped bordered hover>
+                            {getTbody()}
+                        </Table>
+                    </Card.Body>
+                </Card>
+            </Row>
+        </>
     )
 }
