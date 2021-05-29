@@ -19,6 +19,11 @@ function EmployeeList(){
 
     const filteredEmployees = employees.filter(filterByEmployeeName)
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(search(''))
+    },[])
+
     useEffect(()=>{
         if(status==='idle')  dispatch(fetchEmployees())
     },[status, dispatch])
