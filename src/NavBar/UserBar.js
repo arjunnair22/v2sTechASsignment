@@ -14,7 +14,7 @@ export function UserBar() {
                 <>
                     <Button className={'btn btn-secondary float-right'}
                             onClick={() => dispatch(logout())}> Logout </Button>
-                    <div> Welcome - {UserService.getUserName()} </div>
+                    <div className={'d-contents'}> Welcome - {UserService.getUserName()} </div>
                 </> : null}
         </div>
     )

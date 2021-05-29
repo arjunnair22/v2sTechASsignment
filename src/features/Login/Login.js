@@ -12,7 +12,7 @@ function Login(){
     const {personalId, password, isLoggedIn, validationMessage} = useSelector(s=>s.login);
     const dispatch = useDispatch();
     const history = useHistory();
-    const dispatchLogin = (e)=>e.which === 13 ? dispatch(login()) :null;
+    const dispatchLogin = (e)=>e.which === 13 ? dispatch(login({personalId, password})) :null;
     useEffect(()=>{
         // @Todo : use enum for routes
         if(isLoggedIn) {
@@ -24,7 +24,7 @@ function Login(){
         <Row className={'justify-content-center align-items-center custom-row'}>
         <Form>
             <Form.Text id="validationBlock" className={'text-danger'}>
-                {validationMessage.map(msg=><ValidationBlock key={'msg'} msg={msg}/> )}
+                {validationMessage.map(msg=><ValidationBlock key={msg} msg={msg}/> )}
             </Form.Text>
             <Form.Group >
                 <Form.Label>Email address/username</Form.Label>
@@ -47,7 +47,7 @@ function Login(){
                 ))} value={password}/>
             </Form.Group>
 
-            <Button variant="primary" type="button" onClick={()=>dispatch(login())}>
+            <Button variant="primary" type="button" onClick={()=>dispatch(login({personalId, password}))}>
                 Submit
             </Button>
         </Form>

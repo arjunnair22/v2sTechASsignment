@@ -9,3 +9,7 @@
 .clickable {
     cursor: pointer;
 }
+
+.d-contents{
+    display: contents!important;
+}
