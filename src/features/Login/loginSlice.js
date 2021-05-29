@@ -47,7 +47,6 @@ export const loginSlice = createSlice({
     },
     extraReducers:{
         [login.pending]: (state) => {
-            console.log("here")
             state.status = 'loading'
         },
         [login.fulfilled]: (state, action) => {
